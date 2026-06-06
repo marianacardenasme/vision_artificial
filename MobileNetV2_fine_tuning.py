@@ -67,7 +67,7 @@ porcentajeValidacion = 0.2
 
 # Opciones:
 # "vgg16", "vgg19", "resnet50", "mobilenetv2", "densenet121"
-nombreModelo = "vgg16"
+nombreModelo = "mobilenetv2"
 
 # Para entrenar desde cero usa:
 # pesos = "none"
@@ -143,7 +143,7 @@ model.summary()
 # ============================================================
 early_stop = EarlyStopping(
     monitor="val_loss",
-    patience=5,
+    patience=3,
     min_delta=0.0001,
     restore_best_weights=True,
     verbose=1

@@ -13,7 +13,7 @@ from ModeloCNNPreentrenadoFactory import ModeloPreentrenadoFactory
 # ============================================================
 # CARGAR DATOS
 # ============================================================
-def cargarDatos(rutaOrigen, categorias, ancho=32, alto=32):
+def cargarDatos(rutaOrigen, categorias, ancho=128, alto=128):
     imagenesCargadas = []
     valorEsperado = []
 
@@ -53,8 +53,8 @@ def cargarDatos(rutaOrigen, categorias, ancho=32, alto=32):
 # OJO:
 # Las arquitecturas oficiales de Keras con ImageNet esperan 3 canales.
 # Además, VGG/ResNet/MobileNet/DenseNet necesitan al menos 32x32.
-ancho = 32
-alto = 32
+ancho = 128
+alto = 128
 numeroCanales = 3
 
 formaImagen = (alto, ancho, numeroCanales)
