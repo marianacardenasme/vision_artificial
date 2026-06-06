@@ -193,7 +193,7 @@ pesos = "imagenet"
 
 # True = transfer learning
 # False = fine tuning
-congelar_base = True
+congelar_base = False
 
 epochs = 2
 batch_size = 4
@@ -211,7 +211,7 @@ cat = ['carta_1', 'carta_2', 'carta_3', 'carta_4', 'carta_5']
 
 model, nombre_timm = ModeloTransformerTimmFactory.crear(
     nombreModelo=nombreModelo,
-    categorias=cat,           # ← en vez de numeroCategorias
+    categorias=cat,           
     pesos=pesos,
     congelar_base=congelar_base
 )
@@ -432,7 +432,7 @@ matriz = confusion_matrix(y_true, y_pred)
 
 disp = ConfusionMatrixDisplay(
     confusion_matrix=matriz,
-    display_labels=list(range(numeroCategorias))
+    display_labels=list(cat)
 )
 
 disp.plot(cmap="Blues")
@@ -458,7 +458,6 @@ torch.save(
         "alias_modelo": nombreModelo,
         "nombre_timm": nombre_timm,
         "categorias": cat,
-        "numeroCategorias": numeroCategorias,
         "pesos": pesos,
         "congelar_base": congelar_base,
         "state_dict": model.state_dict(),
